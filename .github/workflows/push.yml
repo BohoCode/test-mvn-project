@@ -9,7 +9,7 @@ jobs:
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
-          path: ~/.m2/repository
+          path: /github/home/.m2/repository
           key: ${{ runner.os }}-maven2-${{ hashFiles('**/pom.xml') }}
 
       - name: Release
@@ -32,4 +32,4 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Dump contents of maven repo
-        run: ls -al ~/.m2/repository
+        run: ls -al /github/home/.m2/repository
