@@ -20,7 +20,7 @@ jobs:
           key: ${{ runner.os }}-maven3-${{ hashFiles('**/pom.xml') }}
 
       - name: Does _tmp/_github_home exist?
-        echo `ls -al /home/runner/work/_temp/_github_home`
+        run: echo `ls -al /home/runner/work/_temp/_github_home`
 
       - name: Release
         uses: bohocode/github-actions-maven-release@master
