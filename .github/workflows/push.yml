@@ -25,3 +25,6 @@ jobs:
           git-release-bot-email: "obst@forgerock.com"
 
           access-token: ${{ secrets.ACCESS_TOKEN }}
+
+      - name: Dump contents of maven repo
+        run: ls -al $GITHUB_WORKSPACE/.m2/repository
