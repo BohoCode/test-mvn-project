@@ -11,7 +11,7 @@ jobs:
         run: echo $HOME
 
       - name: Does _tmp/_github_home exist?
-        echo `ls -al /home/runner/work/_temp/_github_home`
+        run: echo `ls -al /home/runner/work/_temp/_github_home`
 
       - name: Cache Maven packages
         uses: actions/cache@v1
