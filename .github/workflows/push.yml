@@ -9,11 +9,8 @@ jobs:
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
-          path: $GITHUB_WORKSPACE/.m2/repository
+          path: ~/.m2/repository
           key: ${{ runner.os }}-maven2-${{ hashFiles('**/pom.xml') }}
-
-      - name: Where is GH_WS?
-        run: echo $GITHUB_WORKSPACE
 
       - name: Release
         uses: bohocode/github-actions-maven-release@master
@@ -22,7 +19,7 @@ jobs:
           gpg-key-id: ${{ secrets.GITHUB_GPG_KEY_ID }}
           gpg-key: ${{ secrets.GITHUB_GPG_KEY }}
 
-          maven-local-repo-path: /github/workspace/.m2/repository
+          maven-local-repo-path: /github/home/.m2/repository
 
           maven-args: "-Dmaven.javadoc.skip=true -DskipTests -Ddockerfile.skip -DskipITs -DdockerCompose.skip"
           maven-repo-server-id: bintray-openbankingtoolkit-OpenBankingToolkit
@@ -35,4 +32,4 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Dump contents of maven repo
-        run: ls -al $GITHUB_WORKSPACE/.m2/repository
+        run: ls -al ~/.m2/repository
