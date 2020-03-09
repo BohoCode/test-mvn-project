@@ -9,7 +9,7 @@ jobs:
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
-          path: @GITHUB_WORKSPACE/.m2/repository
+          path: $GITHUB_WORKSPACE/.m2/repository
           key: ${{ runner.os }}-maven2-${{ hashFiles('**/pom.xml') }}
 
       - name: Release
