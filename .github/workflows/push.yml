@@ -12,6 +12,9 @@ jobs:
           path: $GITHUB_WORKSPACE/.m2/repository
           key: ${{ runner.os }}-maven2-${{ hashFiles('**/pom.xml') }}
 
+      - name: Where is GH_WS?
+        run: echo $GITHUB_WORKSPACE
+
       - name: Release
         uses: bohocode/github-actions-maven-release@master
         with:
