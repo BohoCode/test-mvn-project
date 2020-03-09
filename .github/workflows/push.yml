@@ -36,4 +36,4 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Dump contents of maven repo
-        run: ls -al $HOME/.m2/repository
+        run: ls -al /home/runner/work/_temp/_github_home
