@@ -6,6 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Where is HOME?
+        run: echo $HOME
+
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
