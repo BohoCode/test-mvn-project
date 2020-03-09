@@ -6,6 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: @GITHUB_WORKSPACE/.m2/repository
+          key: ${{ runner.os }}-maven2-${{ hashFiles('**/pom.xml') }}
 
       - name: Release
         uses: bohocode/github-actions-maven-release@master
