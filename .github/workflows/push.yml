@@ -10,11 +10,17 @@ jobs:
       - name: Where is HOME?
         run: echo $HOME
 
+      - name: Does _tmp/_github_home exist?
+        echo `ls -al /home/runner/work/_temp/_github_home`
+
       - name: Cache Maven packages
         uses: actions/cache@v1
         with:
-          path: $HOME/.m2/repository
-          key: ${{ runner.os }}-maven2-${{ hashFiles('**/pom.xml') }}
+          path: /home/runner/work/_temp/_github_home/.m2/repository
+          key: ${{ runner.os }}-maven3-${{ hashFiles('**/pom.xml') }}
+
+      - name: Does _tmp/_github_home exist?
+        echo `ls -al /home/runner/work/_temp/_github_home`
 
       - name: Release
         uses: bohocode/github-actions-maven-release@master
